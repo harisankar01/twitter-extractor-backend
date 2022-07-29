@@ -3,24 +3,29 @@ from itertools import count
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 import tweepy as tw
+from os import getenv
 
 load_dotenv()
 app = Flask(__name__)
-
-key = "JbYaDTbeBLA1svw8N0rbW9AWc"
-key_secret = "8HOFGU54XuVO7JTPjmM6YXLuxweizpdSKs1NQ5MrFWl8KIplki"
-access_token = "1438353997765623812-kMMQUS01HTb0XnSOeHKoV1e9g5Uq6I"
-access_secret = "bthnVimJ0GLSTTZU9Af5SCYHCClHcnWmJDOTmyv6Q7tMh"
+# ENV vars
+key = getenv("API_KEY")
+key_secret = getenv("API_SECRET")
+access_token = getenv("ACCESS_TOKEN")
+access_secret = getenv("TOKEN_SECRET")
 auth = tw.OAuthHandler(key, key_secret, "oob")
 auth.set_access_token(access_token, access_secret)
 api = tw.API(auth)
 
 global points
 
+# Test route
+
 
 @app.route('/', methods=["GET"])
 def index():
     return jsonify("Welcome to twitter scrapper")
+
+# Get tweets from twitter
 
 
 @app.route('/tweets', methods=["GET"])
@@ -40,6 +45,7 @@ def get_tweets():
         place = ""
         if i.place:
             place = i.place.full_name
+# Result json structure
         json_output = {
             "Department": domain,
             "tweet": text,

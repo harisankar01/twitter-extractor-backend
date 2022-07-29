@@ -2,12 +2,12 @@ instance/*
 !instance/.gitignore
 .webassets-cache
 .env
-
+.deployment
 ### Flask.Python Stack ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-
+.vscode/
 # C extensions
 *.so
