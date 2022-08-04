@@ -1,5 +1,3 @@
-from ctypes import pointer
-from itertools import count
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 import tweepy as tw
