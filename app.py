@@ -1,4 +1,4 @@
-import twint
+from os import getenv
 import re
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request
@@ -6,10 +6,10 @@ import tweepy as tw
 load_dotenv()
 app = Flask(__name__)
 # ENV vars
-key = "JbYaDTbeBLA1svw8N0rbW9AWc"
-key_secret = "8HOFGU54XuVO7JTPjmM6YXLuxweizpdSKs1NQ5MrFWl8KIplki"
-access_token = "1438353997765623812-z5JipdSMKkfM1RlwGktOAnzZ7r7E1q"
-access_secret = "PJN3D7IiW2ZdI6QddzoLd3iKb7GwxZIkW0drixv2uYX12"
+key = getenv("API_KEY")
+key_secret = getenv("API_SECRET")
+access_token = getenv("ACCESS_TOKEN")
+access_secret = getenv("TOKEN_SECRET")
 auth = tw.OAuthHandler(key, key_secret, "oob")
 auth.set_access_token(access_token, access_secret)
 api = tw.API(auth)
