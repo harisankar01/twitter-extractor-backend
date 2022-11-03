@@ -242,18 +242,20 @@ def get_user():
         output.append(val.screen_name)
     return jsonify(output)
 
+# Still in development
 
-@app.route('/comments', methods=["GET"])
-def get_replies():
+# In development
+# @app.route('/comments', methods=["GET"])
+# def get_replies():
 
-    user_name = "Athiban_32"
-    replies = tw.Cursor(api.search_tweets, q='to:{}'.format(user_name),
-                        since_id="963825336373821440", tweet_mode='extended').items()
-    while True:
-        reply = replies.next()
-        if not hasattr(reply, 'in_reply_to_status_id_str'):
-            continue
-        if reply.in_reply_to_status_id == "963825336373821440":
-            print("reply of tweet:{}".format(reply.full_text))
+#     user_name = "Athiban_32"
+#     replies = tw.Cursor(api.search_tweets, q='to:{}'.format(user_name),
+#                         since_id="963825336373821440", tweet_mode='extended').items()
+#     while True:
+#         reply = replies.next()
+#         if not hasattr(reply, 'in_reply_to_status_id_str'):
+#             continue
+#         if reply.in_reply_to_status_id == "963825336373821440":
+#             print("reply of tweet:{}".format(reply.full_text))
 
-    return jsonify("da")
+#     return jsonify("da")

@@ -7,6 +7,10 @@ The **tweepy** package provides many abstract methods to make http request to th
 
 - `/`: A `GET` request endpoint for checking if the backend is up and running. Return "Welcome to twitter scrapper" on the `GET` request
 - `/tweets?domain=keyword`: A `GET` request endpoint wich is used to get the tweets from twitter based on the keyword provided as argumnet to the request.
+- `/emergency`: A `GET` request endpoint that provides all the tweets that require immediate action or indicating emergency from all states in India
+- `/complaints`: A `GET` request to get all the tweets regarding complaints that have been made to the police department
+- `/info?name=screen_name`: A `GET` request to get all the infromation regarding a user
+- `/user?name=screen_name`: A `GET` request to get all the tweets posted by a user.
 
 ## Local Development
 
